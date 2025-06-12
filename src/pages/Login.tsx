@@ -31,10 +31,12 @@ const LoginForm: React.FC = () => {
       } else {
         setError(data.message || "Invalid credentials");
       }
-    } catch {
+    } 
+    catch {
       setError("Server error");
     }
   };
+
 
   return (
     <form
