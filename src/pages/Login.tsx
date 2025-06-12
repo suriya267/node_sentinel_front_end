@@ -18,7 +18,8 @@ const LoginForm: React.FC = () => {
     }
 
     try {
-      const res = await fetch(`${process.env.BACKEND_BASE_URL}/api/auth/login`, {
+      const BACKEND_BASE_URL = "https://node-seltinel.onrender.com";
+      const res = await fetch(`${BACKEND_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -31,12 +32,10 @@ const LoginForm: React.FC = () => {
       } else {
         setError(data.message || "Invalid credentials");
       }
-    } 
-    catch {
+    } catch {
       setError("Server error");
     }
   };
-
 
   return (
     <form
@@ -53,7 +52,9 @@ const LoginForm: React.FC = () => {
         className="w-full mt-1 mb-3 px-4 py-2 border border-gray-300 rounded"
       />
 
-      <label className="block text-gray-700 font-medium text-left">Password</label>
+      <label className="block text-gray-700 font-medium text-left">
+        Password
+      </label>
       <input
         type="password"
         value={password}
@@ -71,7 +72,7 @@ const LoginForm: React.FC = () => {
       </button>
 
       <div className="flex justify-end mt-4 cursor-pointer text-blue-500">
-        <div onClick={()=>navigate("/register")}>Create Account?</div>
+        <div onClick={() => navigate("/register")}>Create Account?</div>
       </div>
     </form>
   );

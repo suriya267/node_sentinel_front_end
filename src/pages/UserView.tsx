@@ -23,8 +23,9 @@ const UserView: React.FC = () => {
       return;
     }
     console.log("token---->", token);
+    const BACKEND_BASE_URL = "https://node-seltinel.onrender.com";
 
-    fetch(`${process.env.BACKEND_BASE_URL}/api/auth/me`, {
+    fetch(`${BACKEND_BASE_URL}/api/auth/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

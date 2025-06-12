@@ -37,7 +37,8 @@ const Register: React.FC = () => {
     setSuccess("");
 
     try {
-      const res = await fetch(`${process.env.BACKEND_BASE_URL}/api/auth/register`, {
+      const BACKEND_BASE_URL = "https://node-seltinel.onrender.com";
+      const res = await fetch(`${BACKEND_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
